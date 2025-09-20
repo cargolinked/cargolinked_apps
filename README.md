@@ -265,18 +265,52 @@ pnpm --filter mobile dev    # Mobile app only
 
 ## 🌐 Deployment
 
-### Web App
-- **Vercel** - Recommended for Next.js deployment
-- **Environment variables** - Supabase credentials required
+### Web App (Vercel) ✅
+The web application is configured for automatic deployment to Vercel:
 
-### Mobile App
-- **Expo EAS** - Build and deployment service
-- **App Store/Play Store** - Native app distribution
+```bash
+# Vercel will automatically run:
+pnpm --filter cargolinked-web build
+```
 
-### Database
-- **Supabase** - Already configured and running
+**Environment Variables Required:**
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY` (for API routes)
+
+**Deployment Configuration:**
+- ✅ `vercel.json` configured for web-only deployment
+- ✅ Mobile app excluded from Vercel builds
+- ✅ Next.js API routes properly configured
+
+### Mobile App (Expo EAS)
+The mobile app uses Expo Application Services for deployment:
+
+```bash
+# Install EAS CLI
+npm install -g eas-cli
+
+# Login and configure
+eas login
+cd apps/mobile
+eas build:configure
+
+# Build for production
+eas build --profile production --platform all
+
+# Submit to app stores
+eas submit --platform ios
+eas submit --platform android
+```
+
+**See:** `apps/mobile/DEPLOYMENT.md` for detailed mobile deployment guide.
+
+### Database (Supabase) ✅
+- **Production Ready** - Already configured and running
+- **URL:** `https://qqzturpovtflwenmwvfw.supabase.co`
 - **Backups** - Automated daily backups
 - **Monitoring** - Built-in performance monitoring
+- **RLS Policies** - Secure data access configured
 
 ## 📝 Environment Variables
 
