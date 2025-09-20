@@ -1,0 +1,22 @@
+{
+  "name": "@cargolinked/api",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@cargolinked/types": "workspace:*",
+    "@supabase/supabase-js": "^2.38.0",
+    "@trpc/server": "^10.45.0",
+    "@trpc/client": "^10.45.0",
+    "@trpc/react-query": "^10.45.0",
+    "@tanstack/react-query": "^4.36.1",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.0"
+  }
+}
