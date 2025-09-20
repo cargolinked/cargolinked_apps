@@ -1,10 +1,5 @@
 {
   "buildCommand": "cd ../.. && pnpm turbo build --filter=cargolinked-web",
   "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
-  "framework": "nextjs",
-  "functions": {
-    "src/pages/api/**/*.ts": {
-      "runtime": "nodejs18.x"
-    }
-  }
+  "framework": "nextjs"
 }
