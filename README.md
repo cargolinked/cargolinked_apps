@@ -268,20 +268,24 @@ pnpm --filter mobile dev    # Mobile app only
 ### Web App (Vercel) ✅
 The web application is configured for automatic deployment to Vercel:
 
-```bash
-# Vercel will automatically run:
-pnpm --filter cargolinked-web build
-```
+**Vercel Project Settings:**
+- **Root Directory:** `apps/web` ⚠️ **IMPORTANT**
+- **Build Command:** `cd ../.. && pnpm turbo build --filter=cargolinked-web`
+- **Install Command:** `cd ../.. && pnpm install --frozen-lockfile`
+- **Framework:** Next.js
 
 **Environment Variables Required:**
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `NEXT_PUBLIC_SUPABASE_URL`=`https://qqzturpovtflwenmwvfw.supabase.co`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`=`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...`
 - `SUPABASE_SERVICE_ROLE_KEY` (for API routes)
 
 **Deployment Configuration:**
-- ✅ `vercel.json` configured for web-only deployment
+- ✅ `apps/web/vercel.json` configured for monorepo
+- ✅ Next.js detection via root package.json
 - ✅ Mobile app excluded from Vercel builds
-- ✅ Next.js API routes properly configured
+- ✅ tRPC API routes properly configured
+
+**📖 See:** `VERCEL_DEPLOYMENT.md` for detailed setup guide
 
 ### Mobile App (Expo EAS)
 The mobile app uses Expo Application Services for deployment:
