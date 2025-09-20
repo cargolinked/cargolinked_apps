@@ -104,22 +104,21 @@ export default function ShipperRegistrationPage() {
       const checked = (e.target as HTMLInputElement).checked;
       const checkboxName = (e.target as HTMLInputElement).name;
       
-      if (checkboxName.startsWith('shipmentTypes_') || checkboxName.startsWith('shippingMethods_')) {
-        const fieldName = checkboxName.split('_')[0] as 'shipmentTypes' | 'shippingMethods';
+      if (checkboxName.startsWith('shipmentTypes_')) {
         const optionValue = checkboxName.split('_')[1];
-        
-        const fieldMapping = {
-          shipmentTypes: 'typicalShipmentTypes',
-          shippingMethods: 'preferredShippingMethods'
-        };
-        
-        const actualFieldName = fieldMapping[fieldName];
-        
         setFormData(prev => ({
           ...prev,
-          [actualFieldName]: checked 
-            ? [...prev[actualFieldName as keyof typeof prev] as string[], optionValue]
-            : (prev[actualFieldName as keyof typeof prev] as string[]).filter(item => item !== optionValue)
+          typicalShipmentTypes: checked 
+            ? [...prev.typicalShipmentTypes, optionValue]
+            : prev.typicalShipmentTypes.filter(item => item !== optionValue)
+        }));
+      } else if (checkboxName.startsWith('shippingMethods_')) {
+        const optionValue = checkboxName.split('_')[1];
+        setFormData(prev => ({
+          ...prev,
+          preferredShippingMethods: checked 
+            ? [...prev.preferredShippingMethods, optionValue]
+            : prev.preferredShippingMethods.filter(item => item !== optionValue)
         }));
       }
     } else {

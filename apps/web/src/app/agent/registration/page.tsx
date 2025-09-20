@@ -104,15 +104,21 @@ export default function AgentRegistrationPage() {
       const checked = (e.target as HTMLInputElement).checked;
       const checkboxName = (e.target as HTMLInputElement).name;
       
-      if (checkboxName.startsWith('services_') || checkboxName.startsWith('equipment_')) {
-        const fieldName = checkboxName.split('_')[0] as 'services' | 'equipment';
+      if (checkboxName.startsWith('services_')) {
         const optionValue = checkboxName.split('_')[1];
-        
         setFormData(prev => ({
           ...prev,
-          [fieldName]: checked 
-            ? [...prev[fieldName], optionValue]
-            : prev[fieldName].filter(item => item !== optionValue)
+          services: checked 
+            ? [...prev.services, optionValue]
+            : prev.services.filter(item => item !== optionValue)
+        }));
+      } else if (checkboxName.startsWith('equipment_')) {
+        const optionValue = checkboxName.split('_')[1];
+        setFormData(prev => ({
+          ...prev,
+          equipmentTypes: checked 
+            ? [...prev.equipmentTypes, optionValue]
+            : prev.equipmentTypes.filter(item => item !== optionValue)
         }));
       }
     } else {
