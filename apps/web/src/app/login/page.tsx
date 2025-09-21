@@ -61,17 +61,39 @@ export default function LoginPage() {
     setIsLoading(true);
     
     try {
-      // TODO: Implement actual authentication with Supabase
-      console.log('Login attempt:', formData);
+      const { createClient } = await import('../../lib/supabase');
+      const supabase = createClient();
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Redirect to dashboard (you can determine role from user data)
-      router.push('/dashboard');
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (error) {
+        setErrors({ general: error.message });
+        return;
+      }
+
+      if (data.user) {
+        // Get user profile to determine role
+        const { data: profile } = await supabase
+          .from('users')
+          .select('role')
+          .eq('id', data.user.id)
+          .single();
+
+        // Redirect based on role
+        if (profile?.role === 'agent') {
+          router.push('/agent/dashboard');
+        } else if (profile?.role === 'individual' || profile?.role === 'business') {
+          router.push('/shipper/dashboard');
+        } else {
+          router.push('/dashboard');
+        }
+      }
     } catch (error) {
       console.error('Login error:', error);
-      setErrors({ general: 'Invalid email or password' });
+      setErrors({ general: 'An unexpected error occurred. Please try again.' });
     } finally {
       setIsLoading(false);
     }

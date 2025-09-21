@@ -95,17 +95,45 @@ export default function SignupPage() {
     setIsLoading(true);
     
     try {
-      // TODO: Implement actual registration with Supabase
-      console.log('Registration attempt:', { ...formData, role: selectedRole });
+      const { createClient } = await import('../../lib/supabase');
+      const supabase = createClient();
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Redirect based on role
-      if (selectedRole === 'agent') {
-        router.push('/agent/registration');
-      } else {
-        router.push('/shipper/registration');
+      // Sign up with Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signUp({
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (authError) {
+        setErrors({ general: authError.message });
+        return;
+      }
+
+      if (authData.user) {
+        // Create user profile
+        const { error: profileError } = await supabase
+          .from('users')
+          .insert({
+            id: authData.user.id,
+            email: formData.email,
+            role: selectedRole,
+            first_name: formData.firstName,
+            last_name: formData.lastName,
+            company_name: formData.companyName,
+            phone: formData.phone,
+          });
+
+        if (profileError) {
+          setErrors({ general: 'Failed to create profile. Please try again.' });
+          return;
+        }
+
+        // Redirect based on role
+        if (selectedRole === 'agent') {
+          router.push('/agent/registration');
+        } else {
+          router.push('/shipper/registration');
+        }
       }
     } catch (error) {
       console.error('Registration error:', error);

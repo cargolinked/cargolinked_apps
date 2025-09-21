@@ -32,49 +32,13 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Header from '../components/Header';
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Navigation */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 flex items-center">
-                <Truck className="text-primary text-2xl mr-3" />
-                <span className="text-2xl font-bold text-gray-900">CargoLinked</span>
-              </div>
-              <nav className="hidden md:ml-8 md:flex md:space-x-8">
-                <span className="text-primary font-medium px-3 py-2 rounded-md cursor-pointer">Home</span>
-                <span className="text-gray-600 hover:text-primary px-3 py-2 rounded-md transition-colors cursor-pointer">Browse Directory</span>
-                <span className="text-gray-600 hover:text-primary px-3 py-2 rounded-md transition-colors cursor-pointer">Post a Request</span>
-                <span className="text-gray-600 hover:text-primary px-3 py-2 rounded-md transition-colors cursor-pointer">Dashboard</span>
-              </nav>
-            </div>
-            <div className="flex items-center space-x-4">
-              <button className="text-gray-600 hover:text-primary">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5 5-5-5h5V3h0z" />
-                </svg>
-              </button>
-                  <Link href="/login">
-                    <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50">
-                      Log In
-                    </Button>
-                  </Link>
-                  <Link href="/signup">
-                    <Button className="bg-primary hover:bg-primary-700">
-                      Sign Up
-                    </Button>
-                  </Link>
-              <div className="w-8 h-8 rounded-full bg-gray-300 overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header currentPage="Home" />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-50 to-blue-100 h-[600px] flex items-center">
@@ -88,14 +52,18 @@ export default function HomePage() {
                 Join thousands of freight agents who find quality shipment requests daily. Browse active requests, submit competitive quotes, and grow your logistics business.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-primary text-white px-8 py-4 text-lg font-semibold hover:bg-primary-700 flex items-center justify-center">
-                  <UserPlus className="mr-2 h-5 w-5" />
-                  Join as Agent
-                </Button>
-                <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 px-8 py-4 text-lg font-semibold hover:bg-gray-50 flex items-center justify-center">
-                  <Search className="mr-2 h-5 w-5" />
-                  Browse Requests
-                </Button>
+                <Link href="/signup">
+                  <Button size="lg" className="bg-primary text-white px-8 py-4 text-lg font-semibold hover:bg-primary-700 flex items-center justify-center">
+                    <UserPlus className="mr-2 h-5 w-5" />
+                    Join as Agent
+                  </Button>
+                </Link>
+                <Link href="/browse-requests">
+                  <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 px-8 py-4 text-lg font-semibold hover:bg-gray-50 flex items-center justify-center">
+                    <Search className="mr-2 h-5 w-5" />
+                    Browse Requests
+                  </Button>
+                </Link>
               </div>
               <div className="flex items-center space-x-8 pt-4">
                 <div className="text-center">
@@ -160,7 +128,9 @@ export default function HomePage() {
               <CardContent>
                 <div className="flex justify-between items-center">
                   <div className="text-2xl font-bold text-primary">$3,200</div>
-                  <Button className="bg-primary hover:bg-primary-700">Quote Now</Button>
+                  <Link href="/browse-requests">
+                    <Button className="bg-primary hover:bg-primary-700">Quote Now</Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -190,7 +160,9 @@ export default function HomePage() {
               <CardContent>
                 <div className="flex justify-between items-center">
                   <div className="text-2xl font-bold text-primary">$2,800</div>
-                  <Button className="bg-primary hover:bg-primary-700">Quote Now</Button>
+                  <Link href="/browse-requests">
+                    <Button className="bg-primary hover:bg-primary-700">Quote Now</Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -220,7 +192,9 @@ export default function HomePage() {
               <CardContent>
                 <div className="flex justify-between items-center">
                   <div className="text-2xl font-bold text-primary">$4,100</div>
-                  <Button className="bg-primary hover:bg-primary-700">Quote Now</Button>
+                  <Link href="/browse-requests">
+                    <Button className="bg-primary hover:bg-primary-700">Quote Now</Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -387,14 +361,18 @@ export default function HomePage() {
           <h2 className="text-4xl font-bold text-white mb-4">Ready to Transform Your Freight Business?</h2>
           <p className="text-xl text-blue-100 mb-8">Join thousands of successful agents earning more with quality freight opportunities</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-primary px-8 py-4 text-lg font-semibold hover:bg-gray-100 flex items-center justify-center">
-              <UserPlus className="mr-2 h-5 w-5" />
-              Start as Agent Today
-            </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-primary flex items-center justify-center">
-              <Play className="mr-2 h-5 w-5" />
-              Watch Demo Video
-            </Button>
+            <Link href="/signup">
+              <Button size="lg" className="bg-white text-primary px-8 py-4 text-lg font-semibold hover:bg-gray-100 flex items-center justify-center">
+                <UserPlus className="mr-2 h-5 w-5" />
+                Start as Agent Today
+              </Button>
+            </Link>
+            <Link href="/blog">
+              <Button size="lg" variant="outline" className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-primary flex items-center justify-center">
+                <Play className="mr-2 h-5 w-5" />
+                Learn More
+              </Button>
+            </Link>
           </div>
           <div className="mt-8 flex justify-center items-center space-x-8 text-blue-100">
             <div className="flex items-center">
@@ -433,31 +411,31 @@ export default function HomePage() {
             <div>
               <h3 className="text-lg font-semibold mb-4">For Agents</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><span className="hover:text-white cursor-pointer">Browse Requests</span></li>
-                <li><span className="hover:text-white cursor-pointer">Agent Dashboard</span></li>
-                <li><span className="hover:text-white cursor-pointer">Payment Center</span></li>
-                <li><span className="hover:text-white cursor-pointer">Success Stories</span></li>
-                <li><span className="hover:text-white cursor-pointer">Agent Resources</span></li>
+                <li><Link href="/browse-requests" className="hover:text-white cursor-pointer">Browse Requests</Link></li>
+                <li><Link href="/agent/dashboard" className="hover:text-white cursor-pointer">Agent Dashboard</Link></li>
+                <li><Link href="/payments" className="hover:text-white cursor-pointer">Payment Center</Link></li>
+                <li><Link href="/success-stories" className="hover:text-white cursor-pointer">Success Stories</Link></li>
+                <li><Link href="/agent-resources" className="hover:text-white cursor-pointer">Agent Resources</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">For Shippers</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><span className="hover:text-white cursor-pointer">Post a Request</span></li>
-                <li><span className="hover:text-white cursor-pointer">Browse Directory</span></li>
-                <li><span className="hover:text-white cursor-pointer">Shipper Dashboard</span></li>
-                <li><span className="hover:text-white cursor-pointer">Track Shipments</span></li>
-                <li><span className="hover:text-white cursor-pointer">Pricing Guide</span></li>
+                <li><Link href="/post-request" className="hover:text-white cursor-pointer">Post a Request</Link></li>
+                <li><Link href="/browse-directory" className="hover:text-white cursor-pointer">Browse Directory</Link></li>
+                <li><Link href="/shipper/dashboard" className="hover:text-white cursor-pointer">Shipper Dashboard</Link></li>
+                <li><Link href="/tracking" className="hover:text-white cursor-pointer">Track Shipments</Link></li>
+                <li><Link href="/subscription" className="hover:text-white cursor-pointer">Pricing Guide</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Support</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><span className="hover:text-white cursor-pointer">Help Center</span></li>
-                <li><span className="hover:text-white cursor-pointer">Contact Support</span></li>
-                <li><span className="hover:text-white cursor-pointer">Safety Guidelines</span></li>
-                <li><span className="hover:text-white cursor-pointer">Terms of Service</span></li>
-                <li><span className="hover:text-white cursor-pointer">Privacy Policy</span></li>
+                <li><Link href="/help-center" className="hover:text-white cursor-pointer">Help Center</Link></li>
+                <li><Link href="/contact-support" className="hover:text-white cursor-pointer">Contact Support</Link></li>
+                <li><Link href="/safety-guidelines" className="hover:text-white cursor-pointer">Safety Guidelines</Link></li>
+                <li><Link href="/terms-of-service" className="hover:text-white cursor-pointer">Terms of Service</Link></li>
+                <li><Link href="/privacy-policy" className="hover:text-white cursor-pointer">Privacy Policy</Link></li>
               </ul>
             </div>
           </div>

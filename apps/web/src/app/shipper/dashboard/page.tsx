@@ -23,6 +23,7 @@ import {
   Eye
 } from 'lucide-react';
 import Link from 'next/link';
+import Header from '../../../components/Header';
 
 export default function ShipperDashboardPage() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -105,36 +106,7 @@ export default function ShipperDashboardPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/" className="flex items-center">
-                <Building className="text-primary text-2xl mr-3" />
-                <span className="text-2xl font-bold text-gray-900">CargoLinked</span>
-              </Link>
-              <nav className="hidden md:ml-8 md:flex md:space-x-8">
-                <span className="text-primary font-medium px-3 py-2 rounded-md cursor-pointer">Dashboard</span>
-                <span className="text-gray-600 hover:text-primary px-3 py-2 rounded-md transition-colors cursor-pointer">Post Request</span>
-                <span className="text-gray-600 hover:text-primary px-3 py-2 rounded-md transition-colors cursor-pointer">My Shipments</span>
-                <span className="text-gray-600 hover:text-primary px-3 py-2 rounded-md transition-colors cursor-pointer">Browse Agents</span>
-              </nav>
-            </div>
-            <div className="flex items-center space-x-4">
-              <button className="text-gray-600 hover:text-primary relative">
-                <Bell className="w-5 h-5" />
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">2</span>
-              </button>
-              <button className="text-gray-600 hover:text-primary">
-                <Settings className="w-5 h-5" />
-              </button>
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                <User className="w-4 h-4 text-white" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header currentPage="Dashboard" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Welcome Section */}
