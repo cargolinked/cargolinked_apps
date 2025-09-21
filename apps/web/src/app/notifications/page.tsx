@@ -225,7 +225,7 @@ export default function NotificationsPage() {
                 <h3 className="text-lg font-medium text-gray-900 mb-2">No notifications</h3>
                 <p className="text-gray-600">
                   {filter === 'all' 
-                    ? "You're all caught up! No notifications to show."
+                    ? "You&apos;re all caught up! No notifications to show."
                     : `No ${filter} notifications found.`
                   }
                 </p>

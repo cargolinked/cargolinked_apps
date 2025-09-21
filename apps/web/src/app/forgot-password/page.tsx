@@ -81,10 +81,10 @@ export default function ForgotPasswordPage() {
               </div>
               <h1 className="text-2xl font-bold text-gray-900 mb-2">Check Your Email</h1>
               <p className="text-gray-600 mb-6">
-                We've sent a password reset link to <strong>{email}</strong>
+                We&apos;ve sent a password reset link to <strong>{email}</strong>
               </p>
               <p className="text-sm text-gray-500 mb-6">
-                Didn't receive the email? Check your spam folder or try again.
+                Didn&apos;t receive the email? Check your spam folder or try again.
               </p>
               <div className="space-y-3">
                 <Button
@@ -128,7 +128,7 @@ export default function ForgotPasswordPage() {
             <span className="text-3xl font-bold text-gray-900">CargoLinked</span>
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Reset Your Password</h1>
-          <p className="text-gray-600">Enter your email address and we'll send you a link to reset your password</p>
+          <p className="text-gray-600">Enter your email address and we&apos;ll send you a link to reset your password</p>
         </div>
 
         {/* Reset Form */}
@@ -136,7 +136,7 @@ export default function ForgotPasswordPage() {
           <CardHeader>
             <CardTitle className="text-center">Forgot Password</CardTitle>
             <CardDescription className="text-center">
-              We'll email you instructions to reset your password
+              We&apos;ll email you instructions to reset your password
             </CardDescription>
           </CardHeader>
           <CardContent>

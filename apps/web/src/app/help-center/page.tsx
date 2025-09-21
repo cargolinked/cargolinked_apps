@@ -184,7 +184,7 @@ export default function HelpCenterPage() {
               <CardContent className="p-6 text-center">
                 <Mail className="w-12 h-12 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Email Support</h3>
-                <p className="text-gray-600">Send us an email and we'll respond within 24 hours</p>
+                <p className="text-gray-600">Send us an email and we&apos;ll respond within 24 hours</p>
               </CardContent>
             </Card>
           </Link>
@@ -353,7 +353,7 @@ export default function HelpCenterPage() {
               <CardContent className="p-8 text-center">
                 <h2 className="text-2xl font-bold mb-4">Still Need Help?</h2>
                 <p className="text-blue-100 mb-6">
-                  Can't find what you're looking for? Our support team is here to help you succeed.
+                  Can&apos;t find what you&apos;re looking for? Our support team is here to help you succeed.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link href="/messages">

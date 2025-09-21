@@ -315,7 +315,7 @@ export default function SubscriptionPage() {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Can I cancel anytime?</h3>
-              <p className="text-gray-600">Yes, you can cancel your subscription at any time. You'll continue to have access until the end of your billing period.</p>
+              <p className="text-gray-600">Yes, you can cancel your subscription at any time. You&apos;ll continue to have access until the end of your billing period.</p>
             </div>
           </div>
         </div>

@@ -227,7 +227,7 @@ export default function AgentResourcesPage() {
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Everything you need to succeed as a freight agent. From getting started guides to advanced 
-            business tools, we've got resources to help you grow your operation.
+            business tools, we&apos;ve got resources to help you grow your operation.
           </p>
         </div>
 
@@ -531,7 +531,7 @@ export default function AgentResourcesPage() {
           <CardContent className="p-8 text-center">
             <h2 className="text-3xl font-bold mb-4">Need Something Specific?</h2>
             <p className="text-blue-100 mb-6">
-              Can't find the resource you're looking for? Let us know what would help your business succeed.
+              Can&apos;t find the resource you&apos;re looking for? Let us know what would help your business succeed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact-support">

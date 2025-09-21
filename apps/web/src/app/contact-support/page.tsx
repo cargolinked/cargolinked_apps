@@ -101,7 +101,7 @@ export default function ContactSupportPage() {
               <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
               <h1 className="text-2xl font-bold text-gray-900 mb-2">Ticket Submitted Successfully!</h1>
               <p className="text-gray-600 mb-6">
-                We've received your support request and will respond within 24 hours. 
+                We&apos;ve received your support request and will respond within 24 hours. 
                 Your ticket ID is <strong>#CS-2024-{Math.floor(Math.random() * 10000)}</strong>
               </p>
               <div className="space-y-4">
@@ -143,7 +143,7 @@ export default function ContactSupportPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Support</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Need help? We're here for you. Choose how you'd like to get in touch with our support team.
+            Need help? We&apos;re here for you. Choose how you&apos;d like to get in touch with our support team.
           </p>
         </div>
 
@@ -191,7 +191,7 @@ export default function ContactSupportPage() {
               <CardHeader>
                 <CardTitle>Submit a Support Ticket</CardTitle>
                 <CardDescription>
-                  Provide detailed information about your issue and we'll get back to you as soon as possible.
+                  Provide detailed information about your issue and we&apos;ll get back to you as soon as possible.
                 </CardDescription>
               </CardHeader>
               <CardContent>

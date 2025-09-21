@@ -516,7 +516,7 @@ export default function PostRequestPage() {
               <div className="space-y-6">
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900 mb-2">Timeline & Budget</h2>
-                  <p className="text-gray-600">When do you need this shipped and what's your budget?</p>
+                  <p className="text-gray-600">When do you need this shipped and what&apos;s your budget?</p>
                 </div>
 
                 <div className="space-y-4">
@@ -626,7 +626,7 @@ export default function PostRequestPage() {
                     <div>
                       <h4 className="font-medium text-blue-900">What happens next?</h4>
                       <p className="text-blue-700 text-sm mt-1">
-                        Your request will be posted to our network of verified agents. You'll receive quotes within 24 hours and can choose the best option for your needs.
+                        Your request will be posted to our network of verified agents. You&apos;ll receive quotes within 24 hours and can choose the best option for your needs.
                       </p>
                     </div>
                   </div>

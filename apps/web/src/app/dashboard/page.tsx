@@ -11,7 +11,7 @@ export default function DashboardPage() {
   useEffect(() => {
     // TODO: Get user role from authentication context
     // For now, redirect to agent dashboard as default
-    // In a real app, you would check the user's role and redirect accordingly
+    // In a real app, you would check the user&apos;s role and redirect accordingly
     
     const checkUserRole = async () => {
       try {
@@ -21,7 +21,7 @@ export default function DashboardPage() {
         // const { data: { user } } = await supabase.auth.getUser();
         
         // For demo purposes, redirect to agent dashboard
-        // In production, you would check the user's actual role
+        // In production, you would check the user&apos;s actual role
         router.push('/agent/dashboard');
       } catch (error) {
         console.error('Error checking user role:', error);
