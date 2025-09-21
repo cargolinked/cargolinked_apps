@@ -31,7 +31,6 @@ interface SupportTicket {
 }
 
 export default function ContactSupportPage() {
-  const [activeTab, setActiveTab] = useState('ticket');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [ticket, setTicket] = useState<SupportTicket>({
@@ -139,7 +138,6 @@ export default function ContactSupportPage() {
       <Header currentPage="Contact Support" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Support</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -147,7 +145,6 @@ export default function ContactSupportPage() {
           </p>
         </div>
 
-        {/* Contact Methods */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           <Card className="text-center">
             <CardContent className="p-6">
@@ -185,7 +182,6 @@ export default function ContactSupportPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Support Form */}
           <div className="lg:col-span-2">
             <Card>
               <CardHeader>
@@ -196,7 +192,6 @@ export default function ContactSupportPage() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Subject */}
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                       Subject *
@@ -212,7 +207,6 @@ export default function ContactSupportPage() {
                     />
                   </div>
 
-                  {/* Category */}
                   <div>
                     <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
                       Category *
@@ -241,7 +235,6 @@ export default function ContactSupportPage() {
                     </div>
                   </div>
 
-                  {/* Priority */}
                   <div>
                     <label htmlFor="priority" className="block text-sm font-medium text-gray-700 mb-2">
                       Priority *
@@ -266,7 +259,6 @@ export default function ContactSupportPage() {
                     </div>
                   </div>
 
-                  {/* Description */}
                   <div>
                     <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
                       Description *
@@ -282,7 +274,6 @@ export default function ContactSupportPage() {
                     />
                   </div>
 
-                  {/* File Attachments */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Attachments (Optional)
@@ -310,7 +301,6 @@ export default function ContactSupportPage() {
                       </p>
                     </div>
                     
-                    {/* Attachment List */}
                     {ticket.attachments.length > 0 && (
                       <div className="mt-4 space-y-2">
                         {ticket.attachments.map((file, index) => (
@@ -329,7 +319,6 @@ export default function ContactSupportPage() {
                     )}
                   </div>
 
-                  {/* Submit Button */}
                   <Button
                     type="submit"
                     className="w-full"
@@ -352,9 +341,7 @@ export default function ContactSupportPage() {
             </Card>
           </div>
 
-          {/* Sidebar */}
           <div className="space-y-6">
-            {/* Response Times */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
@@ -366,25 +353,24 @@ export default function ContactSupportPage() {
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span className="text-sm text-gray-600">Critical Issues</span>
-                    <span className="text-sm font-medium">< 2 hours</span>
+                    <span className="text-sm font-medium">&lt; 2 hours</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm text-gray-600">High Priority</span>
-                    <span className="text-sm font-medium">< 4 hours</span>
+                    <span className="text-sm font-medium">&lt; 4 hours</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm text-gray-600">Medium Priority</span>
-                    <span className="text-sm font-medium">< 24 hours</span>
+                    <span className="text-sm font-medium">&lt; 24 hours</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm text-gray-600">Low Priority</span>
-                    <span className="text-sm font-medium">< 48 hours</span>
+                    <span className="text-sm font-medium">&lt; 48 hours</span>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            {/* Office Hours */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
@@ -416,7 +402,6 @@ export default function ContactSupportPage() {
               </CardContent>
             </Card>
 
-            {/* Quick Links */}
             <Card>
               <CardHeader>
                 <CardTitle>Quick Links</CardTitle>
